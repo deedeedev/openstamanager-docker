@@ -1,16 +1,6 @@
-version: "1.0"
+version: "3.8"
 
 services:
-  db:
-    image: mysql:5.7.44
-    volumes:
-      - db_data:/var/lib/mysql
-    environment:
-           MYSQL_ROOT_PASSWORD: open
-           MYSQL_DATABASE: osm
-           MYSQL_USER: osm
-           MYSQL_PASSWORD: osm
-    command: --sort_buffer_size=2M
   app:
     build:
       context: .
@@ -22,6 +12,16 @@ services:
       - "8080:80"
     links:
       - db
+  db:
+    image: mysql:5.7.44
+    volumes:
+      - db_data:/var/lib/mysql
+    environment:
+           MYSQL_ROOT_PASSWORD: open
+           MYSQL_DATABASE: osm
+           MYSQL_USER: osm
+           MYSQL_PASSWORD: osm
+    command: --sort_buffer_size=2M
 
 volumes:
     db_data:
