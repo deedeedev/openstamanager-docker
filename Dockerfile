@@ -1,7 +1,5 @@
 FROM php:8.0-apache
 
-MAINTAINER "Davide Sintini" <davide.sintini@gmail.com>
-
 WORKDIR /var/www/html
 
 RUN apt update && apt upgrade -y
